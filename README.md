@@ -1,15 +1,13 @@
 <!-- VERSION: Fedodo.README.Template V1.1 -->
 
-[//]: # (Replace: {{RepositoryName}} )
+[//]: # (Replace: Fedodo.UI.Photo )
 
-<!-- TODO Update wakatime -->
 [![Contributors][contributors-shield]][contributors-url]
 [![Forks][forks-shield]][forks-url]
 [![Stargazers][stars-shield]][stars-url]
 [![Issues][issues-shield]][issues-url]
 [![MIT License][license-shield]][license-url]
-[![wakatime](https://wakatime.com/badge/user/d37401d6-1566-41ea-b7ab-8cc7d2c9f55b/project/931d730c-4999-4084-84d0-9639c865bcce.svg?style=for-the-badge&logo=appveyor)](https://wakatime.com/badge/user/d37401d6-1566-41ea-b7ab-8cc7d2c9f55b/project/931d730c-4999-4084-84d0-9639c865bcce.svg?style=for-the-badge&logo=appveyor)
-[![HugoBuildAndDeploy](https://img.shields.io/github/actions/workflow/status/Fedodo/{{RepositoryName}}/Build.yaml?style=for-the-badge)](https://github.com/Fedodo/{{RepositoryName}}/actions/workflows/Build.yaml)
+[![HugoBuildAndDeploy](https://img.shields.io/github/actions/workflow/status/Fedodo/Fedodo.UI.Photo/Build.yaml?style=for-the-badge)](https://github.com/Fedodo/Fedodo.UI.Photo/actions/workflows/Build.yaml)
 
 <!-- PROJECT LOGO -->
 <br />
@@ -21,7 +19,7 @@
 <br>
 <br>
 
-### {{RepositoryName}}
+### Fedodo.UI.Photo
 
 <!-- TODO Change the description -->
 In this repository I have created a README-Template based on Best-README-Template
@@ -33,9 +31,9 @@ In this repository I have created a README-Template based on Best-README-Templat
 <a href="https://fedodo.org"><strong>Explore the Project »</strong></a>
 <br />
 <br />
-<a href="https://github.com/Fedodo/{{RepositoryName}}/issues">Report Bug</a>
+<a href="https://github.com/Fedodo/Fedodo.UI.Photo/issues">Report Bug</a>
 ·
-<a href="https://github.com/Fedodo/{{RepositoryName}}/issues">Request Feature</a>
+<a href="https://github.com/Fedodo/Fedodo.UI.Photo/issues">Request Feature</a>
   </p>
 </div>
 
@@ -70,13 +68,13 @@ The code is distributed under the AGPL-3.0 License. See `LICENSE` for more infor
 - [LNA-DEV README-Template](https://github.com/lna-dev/README-Template)
 
 <!-- MARKDOWN LINKS & IMAGES -->
-[contributors-shield]: https://img.shields.io/github/contributors/Fedodo/{{RepositoryName}}.svg?style=for-the-badge
-[contributors-url]: https://github.com/Fedodo/{{RepositoryName}}/graphs/contributors
-[forks-shield]: https://img.shields.io/github/forks/Fedodo/{{RepositoryName}}.svg?style=for-the-badge
-[forks-url]: https://github.com/Fedodo/{{RepositoryName}}/network/members
-[stars-shield]: https://img.shields.io/github/stars/Fedodo/{{RepositoryName}}.svg?style=for-the-badge
-[stars-url]: https://github.com/Fedodo/{{RepositoryName}}/stargazers
-[issues-shield]: https://img.shields.io/github/issues/Fedodo/{{RepositoryName}}.svg?style=for-the-badge
-[issues-url]: https://github.com/Fedodo/{{RepositoryName}}/issues
-[license-shield]: https://img.shields.io/github/license/Fedodo/{{RepositoryName}}.svg?style=for-the-badge
-[license-url]: https://github.com/Fedodo/{{RepositoryName}}/blob/master/LICENSE
+[contributors-shield]: https://img.shields.io/github/contributors/Fedodo/Fedodo.UI.Photo.svg?style=for-the-badge
+[contributors-url]: https://github.com/Fedodo/Fedodo.UI.Photo/graphs/contributors
+[forks-shield]: https://img.shields.io/github/forks/Fedodo/Fedodo.UI.Photo.svg?style=for-the-badge
+[forks-url]: https://github.com/Fedodo/Fedodo.UI.Photo/network/members
+[stars-shield]: https://img.shields.io/github/stars/Fedodo/Fedodo.UI.Photo.svg?style=for-the-badge
+[stars-url]: https://github.com/Fedodo/Fedodo.UI.Photo/stargazers
+[issues-shield]: https://img.shields.io/github/issues/Fedodo/Fedodo.UI.Photo.svg?style=for-the-badge
+[issues-url]: https://github.com/Fedodo/Fedodo.UI.Photo/issues
+[license-shield]: https://img.shields.io/github/license/Fedodo/Fedodo.UI.Photo.svg?style=for-the-badge
+[license-url]: https://github.com/Fedodo/Fedodo.UI.Photo/blob/master/LICENSE
