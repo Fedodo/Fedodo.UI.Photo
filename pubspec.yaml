@@ -10,7 +10,7 @@ dependencies:
   flutter:
     sdk: flutter
   activitypub: ^1.1.2
-  fedodo_general: ^1.1.0
+  fedodo_general: ^1.4.0
 
 dev_dependencies:
   flutter_test:
@@ -18,4 +18,15 @@ dev_dependencies:
   flutter_lints: ^2.0.0
 
 flutter:
+  fonts:
+    - family: Roboto
+      fonts:
+        - asset: packages/fedodo_general/Fonts/Roboto/Roboto-Regular.ttf
+        - asset: packages/fedodo_general/Fonts/Roboto/Roboto-Black.ttf
+    - family: NotoColorEmoji
+      fonts:
+        - asset: packages/fedodo_general/Fonts/NotoColorEmoji-Regular.ttf
+    - family: Righteous
+      fonts:
+        - asset: packages/fedodo_general/Fonts/Righteous-Regular.ttf
   uses-material-design: true
