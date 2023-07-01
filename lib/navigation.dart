@@ -14,12 +14,23 @@ class Navigation extends StatelessWidget {
       title: General.appName,
       inputScreens: const [
         HomeFeed(),
+        HomeFeed(),
+        HomeFeed(),
       ],
       appBarActions: [],
       floatingActionButton: null,
       bottomNavigationBarItems: const [
         BottomNavigationBarItem(
+          label: "Home",
           icon: Icon(Icons.home),
+        ),
+        BottomNavigationBarItem(
+          label: "Search",
+          icon: Icon(Icons.search),
+        ),
+        BottomNavigationBarItem(
+          label: "Profile",
+          icon: Icon(Icons.person),
         ),
       ],
       scrollController: scrollController,
