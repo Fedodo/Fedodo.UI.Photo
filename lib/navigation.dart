@@ -1,5 +1,7 @@
 import 'package:fedodo_general/Globals/general.dart';
+import 'package:fedodo_general/widgets/search.dart';
 import 'package:fedodo_ui_photo/navigation_views/home_feed.dart';
+import 'package:fedodo_ui_photo/navigation_views/profile.dart';
 import 'package:flutter/material.dart';
 import 'package:fedodo_general/navigation.dart' as general;
 
@@ -12,10 +14,14 @@ class Navigation extends StatelessWidget {
 
     return general.Navigation(
       title: General.appName,
-      inputScreens: const [
-        HomeFeed(),
-        HomeFeed(),
-        HomeFeed(),
+      inputScreens: [
+        const HomeFeed(),
+        Search(
+          getProfile: (String profileId) {
+            return Profile(profileId: profileId);
+          },
+        ),
+        Profile(profileId: General.fullActorId),
       ],
       appBarActions: [],
       floatingActionButton: null,
