@@ -17,19 +17,20 @@ class Profile extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return FutureBuilder<ActorStringHelper>(
+    bool isOwnProfile = profileId == General.fullActorId;
+
+    var profile = FutureBuilder<ActorStringHelper>(
       future: getHelper(),
-      builder: (BuildContext context, AsyncSnapshot<ActorStringHelper> snapshot) {
+      builder:
+          (BuildContext context, AsyncSnapshot<ActorStringHelper> snapshot) {
         Widget child;
         if (snapshot.hasData) {
           child = Column(
             children: [
               ProfileHead(actor: snapshot.data!.actor!),
-              Expanded(
-                child: ProfileGallery(
-                  isInbox: profileId == General.fullActorId,
-                  firstPage: snapshot.data!.string!,
-                ),
+              ProfileGallery(
+                isInbox: isOwnProfile,
+                firstPage: snapshot.data!.string!,
               ),
             ],
           );
@@ -51,6 +52,25 @@ class Profile extends StatelessWidget {
         return child;
       },
     );
+
+    if (isOwnProfile) {
+      return profile;
+    } else {
+      return Scaffold(
+        appBar: AppBar(
+          title: Text(
+            General.appName,
+            style: const TextStyle(
+              fontFamily: "Righteous",
+              fontSize: 25,
+              fontWeight: FontWeight.w100,
+              color: Colors.white,
+            ),
+          ),
+        ),
+        body: profile,
+      );
+    }
   }
 
   Future<ActorStringHelper> getHelper() async {

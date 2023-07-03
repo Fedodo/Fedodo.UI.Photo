@@ -78,53 +78,57 @@ class _ProfileGalleryState extends State<ProfileGallery> {
 
   @override
   Widget build(BuildContext context) {
-    return RefreshIndicator(
-      onRefresh: () => Future.sync(
-        () => _paginationController.refresh(),
-      ),
-      child: PagedGridView<String, Document>(
-        scrollController: scrollController,
-        addSemanticIndexes: false,
-        addAutomaticKeepAlives: false,
-        addRepaintBoundaries: true,
-        clipBehavior: Clip.none,
-        pagingController: _paginationController,
-        builderDelegate: PagedChildBuilderDelegate<Document>(
-          itemBuilder: (context, item, index) => Ink.image(
-            image: CachedNetworkImageProvider(
-              item.url?.asFedodoProxyUri().toString() ?? "",
-            ),
-            child: InkWell(
-              onTap: () {
-                // Navigator.push(
-                //   context,
-                //   PageRouteBuilder(
-                //     transitionDuration: const Duration(milliseconds: 300),
-                //     reverseTransitionDuration:
-                //         const Duration(milliseconds: 300),
-                //     pageBuilder: (context, animation, animation2) =>
-                //         PhotoDetail(
-                //       url: item.url?.asFedodoProxyUri().toString() ?? "",
-                //     ),
-                //     transitionsBuilder:
-                //         (context, animation, animation2, widget) =>
-                //             SlideTransition(
-                //                 position: Tween(
-                //                   begin: const Offset(1.0, 0.0),
-                //                   end: const Offset(0.0, 0.0),
-                //                 ).animate(animation),
-                //                 child: widget),
-                //   ),
-                // );
-              },
+    var width = MediaQuery.of(context).size.width;
+
+    return Expanded(
+      child: RefreshIndicator(
+        onRefresh: () => Future.sync(
+          () => _paginationController.refresh(),
+        ),
+        child: PagedGridView<String, Document>(
+          scrollController: scrollController,
+          addSemanticIndexes: false,
+          addAutomaticKeepAlives: false,
+          addRepaintBoundaries: true,
+          clipBehavior: Clip.none,
+          pagingController: _paginationController,
+          builderDelegate: PagedChildBuilderDelegate<Document>(
+            itemBuilder: (context, item, index) => Ink.image(
+              image: CachedNetworkImageProvider(
+                item.url?.asFedodoProxyUri().toString() ?? "",
+              ),
+              child: InkWell(
+                onTap: () {
+                  // Navigator.push(
+                  //   context,
+                  //   PageRouteBuilder(
+                  //     transitionDuration: const Duration(milliseconds: 300),
+                  //     reverseTransitionDuration:
+                  //         const Duration(milliseconds: 300),
+                  //     pageBuilder: (context, animation, animation2) =>
+                  //         PhotoDetail(
+                  //       url: item.url?.asFedodoProxyUri().toString() ?? "",
+                  //     ),
+                  //     transitionsBuilder:
+                  //         (context, animation, animation2, widget) =>
+                  //             SlideTransition(
+                  //                 position: Tween(
+                  //                   begin: const Offset(1.0, 0.0),
+                  //                   end: const Offset(0.0, 0.0),
+                  //                 ).animate(animation),
+                  //                 child: widget),
+                  //   ),
+                  // );
+                },
+              ),
             ),
           ),
-        ),
-        gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-          crossAxisCount: 3,
-          mainAxisSpacing: 16,
-          crossAxisSpacing: 0,
-          childAspectRatio: 2,
+          gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
+            crossAxisCount: 3,
+            mainAxisSpacing: 16,
+            crossAxisSpacing: 0,
+            childAspectRatio: 2,
+          ),
         ),
       ),
     );
