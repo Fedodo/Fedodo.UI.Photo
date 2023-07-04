@@ -6,6 +6,7 @@ import 'package:activitypub/Models/ordered_collection_page.dart';
 import 'package:activitypub/Models/post.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:fedodo_general/Extensions/url_extensions.dart';
+import 'package:fedodo_general/Globals/general.dart';
 import 'package:flutter/material.dart';
 import 'package:infinite_scroll_pagination/infinite_scroll_pagination.dart';
 
@@ -72,6 +73,7 @@ class _ProfileGalleryState extends State<ProfileGallery> {
         _paginationController.appendPage(documents, nextPageKey);
       }
     } catch (error) {
+      General.logger.e(error, "Error occurred in ProfileGallery");
       _paginationController.error = error;
     }
   }

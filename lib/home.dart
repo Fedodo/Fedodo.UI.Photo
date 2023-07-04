@@ -28,6 +28,8 @@ class Home extends StatelessWidget {
       await loginManager.refreshAsync();
       Config.accessToken = Preferences.prefs?.getString("AccessToken");
     };
+    Config.logger = General.logger;
 
-    return const Navigation();  }
+    return const Navigation();
+  }
 }

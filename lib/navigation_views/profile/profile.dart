@@ -19,6 +19,9 @@ class Profile extends StatelessWidget {
   Widget build(BuildContext context) {
     bool isOwnProfile = profileId == General.fullActorId;
 
+    General.logger.d(
+        "Building profile with isOwnProfile=$isOwnProfile and ProfileId=$profileId");
+
     return FutureBuilder<ActorStringHelper>(
       future: getHelper(),
       builder:
@@ -58,6 +61,8 @@ class Profile extends StatelessWidget {
             ),
           );
         } else if (snapshot.hasError) {
+          General.logger.e(snapshot.error, "Error in futureProvider");
+
           child = const Icon(
             Icons.error_outline,
             color: Colors.red,
@@ -80,7 +85,7 @@ class Profile extends StatelessWidget {
   Future<ActorStringHelper> getHelper() async {
     ActorAPI actorProvider = ActorAPI();
     Actor actor = await actorProvider.getActor(profileId);
-    String? firstPage = await getFirstPage(actor);
+    String? firstPage =          await getFirstPage(actor);
     ActorStringHelper helper = ActorStringHelper(
       firstPage,
       actor,
