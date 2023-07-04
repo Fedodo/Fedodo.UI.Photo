@@ -19,20 +19,43 @@ class Profile extends StatelessWidget {
   Widget build(BuildContext context) {
     bool isOwnProfile = profileId == General.fullActorId;
 
-    var profile = FutureBuilder<ActorStringHelper>(
+    return FutureBuilder<ActorStringHelper>(
       future: getHelper(),
       builder:
           (BuildContext context, AsyncSnapshot<ActorStringHelper> snapshot) {
         Widget child;
         if (snapshot.hasData) {
-          child = Column(
-            children: [
-              ProfileHead(actor: snapshot.data!.actor!),
-              ProfileGallery(
+          var slivers = <Widget>[
+            SliverList(
+              delegate: SliverChildListDelegate(
+                [
+                  ProfileHead(actor: snapshot.data!.actor!),
+                ],
+              ),
+            ),
+          ];
+
+          if (!isOwnProfile) {
+            slivers.insert(
+              0,
+              const SliverAppBar(
+                primary: true,
+                pinned: true,
+              ),
+            );
+          }
+
+          child = Scaffold(
+            body: NestedScrollView(
+              headerSliverBuilder:
+                  (BuildContext context, bool innerBoxIsScrolled) {
+                return slivers;
+              },
+              body: ProfileGallery(
                 isInbox: isOwnProfile,
                 firstPage: snapshot.data!.string!,
               ),
-            ],
+            ),
           );
         } else if (snapshot.hasError) {
           child = const Icon(
@@ -52,25 +75,6 @@ class Profile extends StatelessWidget {
         return child;
       },
     );
-
-    if (isOwnProfile) {
-      return profile;
-    } else {
-      return Scaffold(
-        appBar: AppBar(
-          title: Text(
-            General.appName,
-            style: const TextStyle(
-              fontFamily: "Righteous",
-              fontSize: 25,
-              fontWeight: FontWeight.w100,
-              color: Colors.white,
-            ),
-          ),
-        ),
-        body: profile,
-      );
-    }
   }
 
   Future<ActorStringHelper> getHelper() async {

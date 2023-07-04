@@ -86,7 +86,7 @@ class _ProfileGalleryState extends State<ProfileGallery> {
           () => _paginationController.refresh(),
         ),
         child: PagedGridView<String, Document>(
-          scrollController: scrollController,
+          scrollController: null,
           addSemanticIndexes: false,
           addAutomaticKeepAlives: false,
           addRepaintBoundaries: true,
