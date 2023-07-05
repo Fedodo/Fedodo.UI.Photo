@@ -1,3 +1,4 @@
+import 'package:fedodo_ui_photo/posts/post.dart';
 import 'package:flutter/material.dart';
 
 class HomeFeed extends StatelessWidget {
@@ -5,6 +6,11 @@ class HomeFeed extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return Column(
+      children: [
+        Post(),
+        Post(),
+      ],
+    );
   }
 }
