@@ -1,4 +1,4 @@
-import 'package:fedodo_general/Globals/general.dart';
+import 'package:fedodo_general/globals/general.dart';
 import 'package:fedodo_general/widgets/search.dart';
 import 'package:fedodo_ui_photo/navigation_views/home_feed.dart';
 import 'package:fedodo_ui_photo/navigation_views/profile/profile.dart';

@@ -10,8 +10,8 @@ dependencies:
   flutter:
     sdk: flutter
 
-  activitypub: ^1.2.3
-  fedodo_general: ^1.7.2
+  activitypub: ^1.2.4
+  fedodo_general: ^1.8.3
 
   infinite_scroll_pagination: ^3.2.0
   cached_network_image: ^3.2.3
@@ -28,12 +28,12 @@ flutter:
   fonts:
     - family: Roboto
       fonts:
-        - asset: packages/fedodo_general/Fonts/Roboto/Roboto-Regular.ttf
-        - asset: packages/fedodo_general/Fonts/Roboto/Roboto-Black.ttf
+        - asset: packages/fedodo_general/fonts/Roboto/Roboto-Regular.ttf
+        - asset: packages/fedodo_general/fonts/Roboto/Roboto-Black.ttf
     - family: NotoColorEmoji
       fonts:
-        - asset: packages/fedodo_general/Fonts/NotoColorEmoji-Regular.ttf
+        - asset: packages/fedodo_general/fonts/NotoColorEmoji-Regular.ttf
     - family: Righteous
       fonts:
-        - asset: packages/fedodo_general/Fonts/Righteous-Regular.ttf
+        - asset: packages/fedodo_general/fonts/Righteous-Regular.ttf
   uses-material-design: true

@@ -1,7 +1,7 @@
 import 'package:activitypub/APIs/actor_api.dart';
 import 'package:activitypub/APIs/outbox_api.dart';
 import 'package:activitypub/Models/actor.dart';
-import 'package:fedodo_general/Globals/general.dart';
+import 'package:fedodo_general/globals/general.dart';
 import 'package:fedodo_general/widgets/profile/profile_head.dart';
 import 'package:fedodo_ui_photo/navigation_views/profile/helper/actor_string_helper.dart';
 import 'package:fedodo_ui_photo/navigation_views/profile/profile_gallery.dart';
