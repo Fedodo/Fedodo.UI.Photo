@@ -27,14 +27,14 @@ class Post extends StatelessWidget {
 
     List<Widget> children = [
       UserHeader(
-        profileId: activity.object.attributedTo,
+        profileId: activity.object.attributedTo!,
         publishedDateTime: activity.published,
         profile: Profile(
-          profileId: activity.object.attributedTo,
+          profileId: activity.object.attributedTo!,
         ),
       ),
       CachedNetworkImage(
-        imageUrl: (activity.object.attachments?.first as dynamic).url,
+        imageUrl: (activity.object.attachment?.first as dynamic).url,
       ),
       // Html(
       //   data: document.outerHtml,

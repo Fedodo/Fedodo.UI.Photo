@@ -59,7 +59,7 @@ class _ProfileGalleryState extends State<ProfileGallery> {
 
           if (convertedActivity.object.attachment != null &&
               convertedActivity.object.attachment!.isNotEmpty) {
-            documents.addAll(convertedActivity.object.attachment!);
+            documents.addAll(convertedActivity.object.attachment! as dynamic);
           }
         }
       }
