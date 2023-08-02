@@ -1,5 +1,6 @@
 import 'package:activitypub/Models/activity.dart';
 import 'package:activitypub/Models/post.dart' as activity_pub;
+import 'package:activitypub/Models/post.dart';
 import 'package:fedodo_ui_photo/posts/post.dart';
 import 'package:flutter/material.dart';
 
@@ -10,8 +11,8 @@ class HomeFeed extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       children: [
-        Post(
-          activity: Activity<activity_pub.Post>(
+        PhotoPost(
+          activity: Activity<Post>(
             null,
             activity_pub.Post(
               [

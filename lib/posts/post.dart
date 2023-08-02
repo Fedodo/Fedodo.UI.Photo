@@ -11,15 +11,15 @@ import "package:html/dom.dart" as dom;
 import 'package:html/parser.dart' as htmlparser;
 import 'package:url_launcher/url_launcher.dart';
 
-class Post extends StatelessWidget {
-  const Post({
+class PhotoPost extends StatelessWidget {
+  const PhotoPost({
     super.key,
     required this.isClickable,
     required this.activity,
   });
 
   final bool isClickable;
-  final Activity<ActivityPubObject> activity;
+  final Activity<Post> activity;
 
   @override
   Widget build(BuildContext context) {
