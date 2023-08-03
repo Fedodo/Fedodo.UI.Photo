@@ -1,4 +1,3 @@
-import 'package:activitypub/Models/CoreTypes/object.dart';
 import 'package:activitypub/activitypub.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:fedodo_general/widgets/posts/components/post_bottom.dart';
@@ -9,8 +8,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_html/flutter_html.dart';
 import "package:html/dom.dart" as dom;
 import 'package:html/parser.dart' as htmlparser;
-import 'package:url_launcher/url_launcher.dart';
 import 'package:fedodo_general/extensions/url_extensions.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class PhotoPost extends StatelessWidget {
   const PhotoPost({
@@ -28,52 +27,63 @@ class PhotoPost extends StatelessWidget {
 
     List<Widget> children = [
       UserHeader(
-        profileId: activity.object.attributedTo!,
+        profileId: activity.object.attributedTo,
         publishedDateTime: activity.published,
         profile: Profile(
-          profileId: activity.object.attributedTo!,
+          profileId: activity.object.attributedTo,
         ),
       ),
       CachedNetworkImage(
-        imageUrl: activity.object.attachment!.first.url!.asFedodoProxyUri().toString(),
+        imageUrl: activity.object.attachment!.first.url!
+            .asFedodoProxyUri()
+            .toString(),
         fit: BoxFit.fitWidth,
-        width: MediaQuery.of(context).size.width, // This line sets the width bigger than the row is. This is need for BoxFit.
+        width: MediaQuery.of(context)
+            .size
+            .width, // This line sets the width bigger than the row is. This is need for BoxFit.
       ),
-      // Html(
-      //   data: document.outerHtml,
-      //   style: {
-      //     "p": Style(
-      //       fontSize: FontSize(16),
-      //     ),
-      //     "a": Style(
-      //       fontSize: FontSize(16),
-      //       textDecoration: TextDecoration.none,
-      //     ),
-      //   },
-      //   extensions: [
-      //     TagExtension(
-      //       tagsToExtend: {"a"},
-      //       builder: (extensionContext) {
-      //         return InkWell(
-      //           onTap: () => {
-      //             launchUrl(
-      //               Uri.parse(
-      //                 extensionContext.element!.attributes["href"]!,
-      //               ),
-      //             ),
-      //           },
-      //           child: Text(
-      //             extensionContext.node.text!,
-      //             style: const TextStyle(
-      //               color: Colors.blue,
-      //               fontSize: 16,
-      //             ),
-      //           ),
-      //         );
-      //       },
-      //     ),
-      //   ],
-      // ),
+      Padding(
+        padding: const EdgeInsets.fromLTRB(0, 8, 0, 10),
+        child: Html(
+          data: document.outerHtml,
+          style: {
+            "p": Style(
+              fontSize: FontSize(16),
+            ),
+            "a": Style(
+              fontSize: FontSize(16),
+              textDecoration: TextDecoration.none,
+            ),
+          },
+          extensions: [
+            TagExtension(
+              tagsToExtend: {"a"},
+              builder: (extensionContext) {
+                return InkWell(
+                  onTap: () => {
+                    launchUrl(
+                      Uri.parse(
+                        extensionContext.element!.attributes["href"]!,
+                      ),
+                    ),
+                  },
+                  child: Text(
+                    extensionContext.node.text!,
+                    style: const TextStyle(
+                      color: Colors.blue,
+                      fontSize: 16,
+                    ),
+                  ),
+                );
+              },
+            ),
+          ],
+        ),
+      ),
+      const Divider(
+        thickness: 1,
+        height: 0,
+      ),
       PostBottom(
         activity: activity,
         createPostView: const CreatePost(),
