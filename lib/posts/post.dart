@@ -10,6 +10,7 @@ import 'package:flutter_html/flutter_html.dart';
 import "package:html/dom.dart" as dom;
 import 'package:html/parser.dart' as htmlparser;
 import 'package:url_launcher/url_launcher.dart';
+import 'package:fedodo_general/extensions/url_extensions.dart';
 
 class PhotoPost extends StatelessWidget {
   const PhotoPost({
@@ -34,7 +35,9 @@ class PhotoPost extends StatelessWidget {
         ),
       ),
       CachedNetworkImage(
-        imageUrl: (activity.object.attachment?.first as dynamic).url,
+        imageUrl: activity.object.attachment!.first.url!.asFedodoProxyUri().toString(),
+        fit: BoxFit.fitWidth,
+        width: MediaQuery.of(context).size.width, // This line sets the width bigger than the row is. This is need for BoxFit.
       ),
       // Html(
       //   data: document.outerHtml,
