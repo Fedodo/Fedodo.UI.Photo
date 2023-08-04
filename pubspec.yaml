@@ -10,7 +10,7 @@ dependencies:
   flutter:
     sdk: flutter
 
-  activitypub: ^1.2.9
+  activitypub: ^1.2.10
   fedodo_general: ^1.8.3
 
   infinite_scroll_pagination: ^3.2.0

@@ -1,3 +1,5 @@
+import 'dart:html';
+
 import 'package:activitypub/APIs/inbox_api.dart';
 import 'package:activitypub/APIs/outbox_api.dart';
 import 'package:activitypub/Models/ObjectTypes/document.dart';
@@ -30,6 +32,8 @@ class _ProfileGalleryState extends State<ProfileGallery> {
   static const _pageSize = 20;
   final ScrollController scrollController = ScrollController();
 
+  bool completelyEmpty = true;
+
   @override
   void initState() {
     super.initState();
@@ -59,9 +63,25 @@ class _ProfileGalleryState extends State<ProfileGallery> {
 
           if (convertedActivity.object.attachment != null &&
               convertedActivity.object.attachment!.isNotEmpty) {
-            documents.addAll(convertedActivity.object.attachment! as dynamic);
+            for (var element in convertedActivity.object.attachment!) {
+              General.logger.d("Attachment: ${element.mediaType}");
+            }
+
+            var filteredActivities = convertedActivity.object.attachment!
+                .where((element) => element.mediaType == "image/jpeg" || element.mediaType == "image/png");
+
+            if (filteredActivities.isNotEmpty) {
+              documents.addAll(filteredActivities);
+            }
           }
         }
+      }
+
+      final nextPageKey = orderedCollectionPage.next;
+
+      if (nextPageKey == null) {
+        _paginationController.appendLastPage([]);
+        return;
       }
 
       final isLastPage = false; // TODO
@@ -69,8 +89,13 @@ class _ProfileGalleryState extends State<ProfileGallery> {
       if (isLastPage) {
         _paginationController.appendLastPage(documents);
       } else {
-        final nextPageKey = orderedCollectionPage.next;
-        _paginationController.appendPage(documents, nextPageKey);
+        // We need a workaround here. This is because of https://github.com/EdsonBueno/infinite_scroll_pagination/issues/277
+        if (documents.isNotEmpty || !completelyEmpty) {
+          completelyEmpty = false;
+          _paginationController.appendPage(documents, nextPageKey);
+        } else {
+          _fetchPage(nextPageKey);
+        }
       }
     } catch (error) {
       General.logger.e(error, "Error occurred in ProfileGallery");
